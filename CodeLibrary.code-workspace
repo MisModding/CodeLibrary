@@ -1,0 +1,42 @@
+{
+	"folders": [
+		{
+			"name": "Code Library",
+			"path": "."
+		}
+	],
+	"settings": {
+		"workbench.startupEditor": "readme",
+		"todo-tree.filtering.ignoreGitSubmodules": true,
+		"vscode-lua-format.configPath": "${workspaceFolder}/.tools/lua-format.cfg",
+		"vscode-lua-format.binaryPath": "${workspaceFolder}/.tools/lua-format.exe",
+		"Lua.runtime.version": "Lua 5.1",
+		"Lua.workspace.library": [
+			".lua.completions.d"
+		],
+	},
+	"extensions": {
+		"recommendations": [
+			"sumneko.lua",
+			"aaron-bond.better-comments",
+			"Gruntfuggly.todo-tree",
+			"usernamehw.errorlens",
+			"Koihik.vscode-lua-format"
+		]
+	},
+	"tasks": {
+		"version": "2.0.0",
+		"tasks": [
+			{
+				"label": "Install Tools: ONLY DO THIS ONCE",
+				"type": "shell",
+				"windows": {
+					"command": [
+						"@powershell Invoke-WebRequest \"http://www.contoso.com\" | Select-Object -ExpandProperty Content | Out-File \".tools/lua-format.exe\"",
+						"@powershell Expand-Archive -Path workspace.zip -DestinationPath . -Force",
+					],
+				}
+			}
+		]
+	}
+}
