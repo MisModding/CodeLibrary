@@ -44,20 +44,17 @@
         Log("Testing....")
         myModule.helloWorld("Miscreated") -- run the test `helloWorld` function from "MyModule"
     end
-]]
--- ────────────────────────────────────────────────────────────────────────────────
-if not _G['mLuaMods'] then
-    _G['mLuaMods'] = {}
-end
+]] -- ────────────────────────────────────────────────────────────────────────────────
+if not _G['mLuaMods'] then _G['mLuaMods'] = {} end
 
---[Custom Loader]
+-- [Custom Loader]
 --- Internal: loadLuaMod(modulename)
 -- Loads the Specified Module by namespace , if found in _G["mLuaMods"]
 local function loadLuaMod(modulename)
     local errmsg = 'Failed to Find Module'
     -- Find the Module
     ---? uncomment for debugging
-    --Log('loadLuaMod Searching: %s', modulename)
+    -- Log('loadLuaMod Searching: %s', modulename)
     local LuaMods = _G['mLuaMods']
     local this_module = LuaMods[modulename]
     if this_module then
@@ -71,7 +68,7 @@ end
 -- Install the loader so that it's called just before the normal Lua loader
 table.insert(package.loaders, 2, loadLuaMod)
 
---[Usable Methods]
+-- [Usable Methods]
 -- ────────────────────────────────────────────────────────────────────────────────
 
 --- RegisterModule(name: string, mod: table) --> {boolean,string}
